@@ -48,11 +48,10 @@ extern bool hid_ignore(struct hid_device *);
  */
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(3,4,60))
 static inline int __must_check kref_get_unless_zero(struct kref *kref)
-#endif /* (LINUX_VERSION_CODE < KERNEL_VERSION(3,4,60)) */
 {
 	return atomic_add_unless(&kref->refcount, 1, 0);
 }
-
+#endif /* (LINUX_VERSION_CODE < KERNEL_VERSION(3,4,60)) */
 /* This backports:
  *
  * commit 83e68189745ad931c2afd45d8ee3303929233e7f
